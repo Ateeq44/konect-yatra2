@@ -193,6 +193,7 @@
 <script data-cfasync="false" src="{{asset('../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script>
 <!-- <script src="{{asset('new-assets/js/jquery.js')}}"></script> -->
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="{{asset('assets/js/iternary.js')}}"></script>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
 <script>
