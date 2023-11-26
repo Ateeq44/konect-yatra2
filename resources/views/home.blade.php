@@ -87,7 +87,9 @@
 							<p>
 								{{ @$value->address.', '.@$value->city.', '.@$value->state }}
 							</p>
-
+							<div class="btn-wrap mt-4">
+								<a href="#" class="button-text width-6 btn-slider1 mt-2" previewlistener="true">Explore More</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -116,17 +118,7 @@
 			</div>
 			<div class="activity-inner row">
 				<div class="col-md-12">
-					{{-- <div class="row slick">
-						@if(count(@$gallery) > 0)
-						@foreach(@$gallery as $key => $value)
-						<div class="col-lg-6 col-md-6 heading-bx p-lr mb-5">
-							<div class="action-box">
-								<img src="{{asset('gallery/'.$value->image)}}" style="height: 400px; border-radius: 10px;" alt="">
-							</div>
-						</div>
-						@endforeach
-						@endif
-					</div> --}}
+					
 
 					<div class="slick-slider">
 						@if(count($gallery) > 0)
@@ -187,7 +179,7 @@
 					@foreach(@$hotels as $key => $value)
 					<div class="col-lg-4 col-md-6">
 						<div class="package-wrap">
-							<figure class="feature-image">
+							<figure class="feature-image mx-0">
 								<a href="">
 									<img src="{{asset('hotels/'.@$value->image)}}" style="width: 100%; border-radius: 30px; height: 220px !important;" alt="">
 								</a>
@@ -204,7 +196,9 @@
 										</div>
 									</div> --}}
 									<p>{{ @$value->address.', '.@$value->city.', '.@$value->state }}</p>
-									<div class="btn-wrap">
+									
+									<div class="btn-wrap mt-4">
+										<a href="#" class="button-text width-6 btn-slider1 mt-2" previewlistener="true">Explore More</a>
 									</div>
 								</div>
 							</div>
@@ -234,7 +228,7 @@
 					@foreach(@$locations as $key => $value)
 					<div class="col-lg-4 col-md-6">
 						<div class="package-wrap">
-							<figure class="feature-image">
+							<figure class="feature-image mx-0">
 								<a href="">
 									<img src="{{asset('locations/'.@$value->image)}}" style="width: 100%; border-radius: 30px; height: 220px !important;" alt="">
 								</a>
@@ -251,7 +245,8 @@
 										</div>
 									</div> --}}
 									<p>{{ @$value->city.', '.@$value->state }}</p>
-									<div class="btn-wrap">
+									<div class="btn-wrap mt-4">
+										<a href="#" class="button-text width-6 btn-slider1 mt-2" previewlistener="true">Explore More</a>
 									</div>
 								</div>
 							</div>
@@ -276,7 +271,7 @@
 			</div>
 			<div class="activity-inner row ">
 				<div class="col-md-12">
-					<div class="row slick">
+					<!-- <div class="row slick">
 						@foreach(@$events as $key => $value)
 
 						<div class="col-lg-6 col-md-6 heading-bx p-lr mb-5" style="box-shadow: 1x 2px 3px black !important;">
@@ -302,8 +297,39 @@
 							</div>
 						</div>
 						@endforeach
-					</div>
+					</div> -->
+					<div class="slick-slider">
+						@if(count($events) > 0)
+						@foreach(@$events as $key => $value)
 
+						<div class="element element-1 ml-3"><img style="height: 200px;" src="{{ asset('news_and_events/'.$value->image) }}">
+							<div class="info-bx row py-3 px-3">
+								<!--  -->
+								<div class="col-4 py-3 px-2 text-center bg-dark text-white">
+									<div class="event-date" style="font-size:40px;"><b>{{ date('d', strtotime(@$value->event_date)) }}</b></div>
+									<div class="event-month"><b>{{ date('F', strtotime(@$value->event_date)) }}</b></div>
+								</div>
+								<div class="col-8">
+									<h4 class="event-title"><a href="#">{{ @$value->title }}</a></h4>
+									<ul class="media-post m-0 p-0" style="list-style-type:none;">
+										<li><a href="#"><i class="fa fa-clock-o"></i> {{ @$value->event_time }}</a></li>
+										<li><a href="#"><i class="fa fa-map-marker"></i> {{ @$value->location }}</a></li>
+									</ul>
+								</div>
+								<div class="col-12 mt-3">
+									<p>{{ @$value->description }}</p>
+									<div class="btn-wrap mt-4">
+										<a href="#" class="button-text width-6 btn-slider1 mt-2" previewlistener="true">Explore More</a>
+									</div>
+								</div>
+
+								<!--  -->
+							</div>
+						</div>
+
+						@endforeach
+						@endif
+					</div>
 					{{-- small screen slider --}}
 					<div id="carouselExampleControls1" class="carousel slide" data-ride="carousel" style="display:none">
 						<div class="carousel-inner">
@@ -326,6 +352,7 @@
 										</ul>
 										<p>{{ @$value->description }}</p>
 									</div>
+
 								</div>
 							</div>
 							@endforeach
@@ -363,7 +390,7 @@
 					@foreach(@$news as $key => $value)
 					<div class="col-lg-4 col-md-6">
 						<div class="package-wrap">
-							<figure class="feature-image">
+							<figure class="feature-image mx-0">
 								<a href="{{ url('gurdwaras') }}">
 									<img src="{{asset('news_and_events/'.@$value->image)}}" style="width: 100%; border-radius: 30px; height: 220px !important;" alt="">
 								</a>
@@ -386,8 +413,12 @@
 									<h3 class="mt-4 text-left">
 										<a href="#">{{ @$value->title }}</a>
 									</h3>
-									<p class="pb-4">{{ @$value->description }}</p>
+									<p class="">{{ @$value->description }}</p>
+									<div class="btn-wrap mt-4">
+										<a href="#" class="button-text width-6 btn-slider1 mt-2" previewlistener="true">Explore More</a>
+									</div>
 								</div>
+
 							</div>
 						</div>
 					</div>
